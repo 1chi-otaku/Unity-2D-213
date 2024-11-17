@@ -18,6 +18,11 @@ public class PigScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.CompareTag("PigDestroyer"))
+        {
+            GameState.IsLevelComplete = true;
+            GameState.Pause("Victory is yours","You've successfully perished an innocent pig", "Next Level");
+        }
+       
     }
 }
